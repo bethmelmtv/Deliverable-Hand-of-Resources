@@ -14,3 +14,16 @@ INSERT INTO dogs (name, breed, family) VALUES
 ('Frankie', 'Pomeranian','Beths'),
 ('Jeep','Labrador','Danis'),
 ('Oscar','Poodle','Rebekahs');
+
+
+CREATE table cats (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  breed VARCHAR NOT NULL,
+  family VARCHAR NOT NULL
+);
+
+INSERT INTO cats (name, breed, family) VALUES
+('Tiger', 'Tabby','Carol'),
+('Aniah','Persian','Jared'),
+('Anelise','Munchkin cat','Shreya');

@@ -27,3 +27,15 @@ INSERT INTO cats (name, breed, family) VALUES
 ('Tiger', 'Tabby','Carol'),
 ('Aniah','Persian','Jared'),
 ('Anelise','Munchkin cat','Shreya');
+
+CREATE table grocery_stores(
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  store VARCHAR NOT NULL,
+  location INT NOT NULL,
+  known_for VARCHAR NOT NULL
+);
+
+INSERT INTO grocery_stores (store, location, known_for) VALUES
+('Trader Joes', 157, 'cheese and wine'),
+('Sprouts', 200, 'sandwiches'),
+('Whole Foods', 349, 'expensive');

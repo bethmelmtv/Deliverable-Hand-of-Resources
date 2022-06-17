@@ -2,6 +2,8 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 
 DROP table if exists dogs;
+DROP table if exists cats;
+DROP table if exists grocery;
 
 CREATE table dogs (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -28,14 +30,14 @@ INSERT INTO cats (name, breed, family) VALUES
 ('Aniah','Persian','Jared'),
 ('Anelise','Munchkin cat','Shreya');
 
-CREATE table grocery_stores(
+CREATE table grocery(
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   store VARCHAR NOT NULL,
   location INT NOT NULL,
-  known_for VARCHAR NOT NULL
+  knownfor VARCHAR NOT NULL
 );
 
-INSERT INTO grocery_stores (store, location, known_for) VALUES
+INSERT INTO grocery (store, location, knownfor) VALUES
 ('Trader Joes', 157, 'cheese and wine'),
 ('Sprouts', 200, 'sandwiches'),
 ('Whole Foods', 349, 'expensive');

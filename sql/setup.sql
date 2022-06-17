@@ -4,6 +4,7 @@
 DROP table if exists dogs;
 DROP table if exists cats;
 DROP table if exists grocery;
+DROP table if exists cities;
 
 CREATE table dogs (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -41,3 +42,16 @@ INSERT INTO grocery (store, location, knownfor) VALUES
 ('Trader Joes', 157, 'cheese and wine'),
 ('Sprouts', 200, 'sandwiches'),
 ('Whole Foods', 349, 'expensive');
+
+
+CREATE table cities(
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  city VARCHAR NOT NULL,
+  state VARCHAR NOT NULL,
+  temperature VARCHAR NOT NULL
+);
+
+  INSERT INTO cities(city, state, temperature) VALUES
+  ('Chicago', 'Illinois', 'cold'),
+  ('San Francisco', 'California', 'foggy'),
+  ('Mountain View', 'California', 'dosent know what it wants');

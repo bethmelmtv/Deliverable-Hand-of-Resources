@@ -8,23 +8,38 @@ describe('testing the delete route', () => {
     return setup(pool);
   });
 
+  it('GET/READ /grocery should return a list of grocery stores', async () => {
+    const resp = await request(app).get('/grocery');
+    expect(resp.status).toEqual(200);
+    expect(resp.body).toEqual([
+      {
+        id: '1',
+        store: 'Trader Joes',
+        location: 157,
+        knownfor: 'cheese and wine',
+      },
+      { id: '2', store: 'Sprouts', location: 200, knownfor: 'sandwiches' },
+      { id: '3', store: 'Whole Foods', location: 349, knownfor: 'expensive' },
+    ]);
+  });
+
   it('PUT/UPDATE/grocery/:id grocery store should update a grocery store', async () => {
     const resp = await request(app)
       .put('/grocery/2')
-      .send({ store: 'Krogers', location: 'Arizona', knownfor: 'deli meats' });
+      .send({ store: 'Krogers', location: 393, knownfor: 'deli meats' });
     console.log(resp.body, 'RESP BODY');
     expect(resp.body.store).toEqual('Krogers');
   });
 
-  it.only('POST/grocery should create a new grocery item', async () => {
+  it('POST/grocery should create a new grocery item', async () => {
     const resp = await request(app).post('/grocery').send({
       store: 'Albertons',
-      location: 'Union City',
+      location: 343,
       knownfor: 'Overpricing their stuff',
     });
-    expect(resp.body.name).toEqual('Albertons');
-    expect(resp.body.breed).toEqual('Union City');
-    expect(resp.body.family).toEqual('Overpricing their stuff');
+    expect(resp.body.store).toEqual('Albertons');
+    expect(resp.body.location).toEqual(343);
+    expect(resp.body.knownfor).toEqual('Overpricing their stuff');
   });
 
   it('DELETE/grocery/:id should delete a grocery store', async () => {

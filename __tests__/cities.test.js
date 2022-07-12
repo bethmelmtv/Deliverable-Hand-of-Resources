@@ -8,6 +8,11 @@ describe('testing the read route', () => {
     return setup(pool);
   });
 
+  it('PUT/cats/:id cat should update a cat', async () => {
+    const resp = await request(app).put('/cats/2').send({ name: 'Almond' });
+    expect(resp.body.name).toEqual('Almond');
+  });
+
   it('GET/cities/:id city should return city detail', async () => {
     const resp = await request(app).get('/cities/2');
     expect(resp.status).toEqual(200);

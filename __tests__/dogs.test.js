@@ -8,7 +8,7 @@ describe('testing the create route', () => {
     return setup(pool);
   });
 
-  it('PUT/dogs/:id cat should update a dog', async () => {
+  it('PUT/UPDATE/dogs/:id dog should update a dog', async () => {
     const resp = await request(app).put('/dogs/2').send({ name: 'Almond' });
     expect(resp.body.name).toEqual('Almond');
   });

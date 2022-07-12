@@ -13,15 +13,15 @@ describe('testing the create route', () => {
     expect(resp.body.name).toEqual('Almond');
   });
 
-  it('POST/dog should create a new dog', async () => {
-    const resp = await request(app).post('/dogs').send({
-      name: 'Frankie',
-      breed: 'Pomeranian',
-      family: 'Beths',
+  it('POST/cats should create a new dog', async () => {
+    const resp = await request(app).post('/cats').send({
+      name: 'Spark',
+      breed: 'feline',
+      family: 'Rebekahs',
     });
-    expect(resp.body.name).toEqual('Frankie');
-    expect(resp.body.breed).toEqual('Pomeranian');
-    expect(resp.body.family).toEqual('Beths');
+    expect(resp.body.name).toEqual('Spark');
+    expect(resp.body.breed).toEqual('feline');
+    expect(resp.body.family).toEqual('Rebekahs');
   });
 
   afterAll(() => {

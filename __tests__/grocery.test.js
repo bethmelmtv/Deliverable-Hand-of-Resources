@@ -8,12 +8,23 @@ describe('testing the delete route', () => {
     return setup(pool);
   });
 
-  it.only('PUT/UPDATE/grocery/:id grocery store should update a grocery store', async () => {
+  it('PUT/UPDATE/grocery/:id grocery store should update a grocery store', async () => {
     const resp = await request(app)
       .put('/grocery/2')
       .send({ store: 'Krogers', location: 'Arizona', knownfor: 'deli meats' });
     console.log(resp.body, 'RESP BODY');
     expect(resp.body.store).toEqual('Krogers');
+  });
+
+  it('POST/grocery should create a new grocery item', async () => {
+    const resp = await request(app).post('/grocery').send({
+      store: 'Albertons',
+      location: 'Union City',
+      knownfor: 'Overpricing their stuff',
+    });
+    expect(resp.body.name).toEqual('Frankie');
+    expect(resp.body.breed).toEqual('Pomeranian');
+    expect(resp.body.family).toEqual('Beths');
   });
 
   it('DELETE/grocery/:id should delete a grocery store', async () => {

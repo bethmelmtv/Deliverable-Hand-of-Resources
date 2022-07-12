@@ -8,7 +8,7 @@ describe('testing the delete route', () => {
     return setup(pool);
   });
 
-  it('PUT/grocery/:id grocery store should update a grocery store', async () => {
+  it('PUT/UPDATE/grocery/:id grocery store should update a grocery store', async () => {
     const resp = await request(app)
       .put('/grocery/2')
       .send({ store: 'Krogers', location: 'Arizona', knownfor: 'deli meats' });

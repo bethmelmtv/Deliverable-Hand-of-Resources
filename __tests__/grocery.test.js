@@ -16,15 +16,15 @@ describe('testing the delete route', () => {
     expect(resp.body.store).toEqual('Krogers');
   });
 
-  it('POST/grocery should create a new grocery item', async () => {
+  it.only('POST/grocery should create a new grocery item', async () => {
     const resp = await request(app).post('/grocery').send({
       store: 'Albertons',
       location: 'Union City',
       knownfor: 'Overpricing their stuff',
     });
-    expect(resp.body.name).toEqual('Frankie');
-    expect(resp.body.breed).toEqual('Pomeranian');
-    expect(resp.body.family).toEqual('Beths');
+    expect(resp.body.name).toEqual('Albertons');
+    expect(resp.body.breed).toEqual('Union City');
+    expect(resp.body.family).toEqual('Overpricing their stuff');
   });
 
   it('DELETE/grocery/:id should delete a grocery store', async () => {

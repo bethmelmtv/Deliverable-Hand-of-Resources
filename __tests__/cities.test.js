@@ -8,9 +8,15 @@ describe('testing the read route', () => {
     return setup(pool);
   });
 
-  it('PUT/cats/:id cat should update a cat', async () => {
-    const resp = await request(app).put('/cats/2').send({ name: 'Almond' });
-    expect(resp.body.name).toEqual('Almond');
+  it('PUT/cities/:id cat should update a city', async () => {
+    const resp = await request(app)
+      .put('/cities/2')
+      .send({
+        city: 'Charleston',
+        state: 'North Carolina',
+        temperature: 'muggy',
+      });
+    expect(resp.body.name).toEqual('Charleston');
   });
 
   it('GET/cities/:id city should return city detail', async () => {

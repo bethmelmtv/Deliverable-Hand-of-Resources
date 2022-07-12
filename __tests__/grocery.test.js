@@ -8,10 +8,11 @@ describe('testing the delete route', () => {
     return setup(pool);
   });
 
-  it('PUT/UPDATE/grocery/:id grocery store should update a grocery store', async () => {
+  it.only('PUT/UPDATE/grocery/:id grocery store should update a grocery store', async () => {
     const resp = await request(app)
       .put('/grocery/2')
       .send({ store: 'Krogers', location: 'Arizona', knownfor: 'deli meats' });
+    console.log(resp.body, 'RESP BODY');
     expect(resp.body.store).toEqual('Krogers');
   });
 

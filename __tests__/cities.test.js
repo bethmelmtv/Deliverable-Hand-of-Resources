@@ -5,16 +5,17 @@ const app = require('../lib/app');
 
 describe('testing the read route', () => {
   beforeEach(() => {
-    return setup(pool);
+    return setup(pool); //reruns our database between each test
   });
 
-  it('PUT/cities/:id cat should update a city', async () => {
+  it('PUT/cities/:id  should update a city', async () => {
     const resp = await request(app).put('/cities/2').send({
       city: 'Charleston',
       state: 'North Carolina',
       temperature: 'muggy',
     });
-    expect(resp.body.name).toEqual('Charleston');
+    console.log(resp.body.city, 'RESP');
+    expect(resp.body.city).toEqual('Charleston');
   });
 
   it('GET/cities/:id city should return city detail', async () => {
@@ -68,8 +69,9 @@ describe('testing the read route', () => {
     const resp = await request(app).delete('/cities/2');
     expect(resp.status).toEqual(200);
     expect(resp.body.id).toEqual('2');
-    const { status } = await request(app).get('/cities/2');
-    expect(status).toEqual(404);
+    console.log(resp.body, 'RESP BODY');
+    const { body } = await request(app).get('/cities/2');
+    expect(body).toEqual(null);
   });
 
   afterAll(() => {

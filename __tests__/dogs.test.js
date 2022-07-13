@@ -15,6 +15,7 @@ describe('testing the create route', () => {
 
   it('GET/READ /dogs should return a list of dogs', async () => {
     const resp = await request(app).get('/dogs');
+    console.log(resp.body, 'RESP BODY');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual([
       {

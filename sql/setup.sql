@@ -26,7 +26,7 @@ CREATE table cats (
   family VARCHAR NOT NULL
 );
 
-INSERT INTO cats (name, breed, family) VALUES
+INSERT INTO cats (name, breed, owner) VALUES
 ('Tiger', 'Tabby','Carol'),
 ('Aniah','Persian','Jared'),
 ('Anelise','Munchkin cat','Shreya');

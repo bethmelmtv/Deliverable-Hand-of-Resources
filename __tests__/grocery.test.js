@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('testing the delete route', () => {
+describe('testing the CRUD routes for groceries', () => {
   beforeEach(() => {
     return setup(pool);
   });

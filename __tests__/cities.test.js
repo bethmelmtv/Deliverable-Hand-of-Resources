@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('testing the read route', () => {
+describe('testing the CRUD routes for cities', () => {
   beforeEach(() => {
     return setup(pool); //reruns our database between each test
   });
@@ -29,7 +29,7 @@ describe('testing the read route', () => {
     });
   });
 
-  it(' /cities should return a list of cities', async () => {
+  it(' GET /cities should return a list of cities', async () => {
     const resp = await request(app).get('/cities');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual([

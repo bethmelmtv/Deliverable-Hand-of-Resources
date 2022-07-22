@@ -19,7 +19,7 @@ describe('testing the CRUD routes for cats', () => {
     expect(resp.body.owner).toEqual('Beth');
   });
 
-  it('GET /cats should return a list of cats', async () => {
+  it.only('GET /cats should return a list of cats', async () => {
     const resp = await request(app).get('/cats');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual([

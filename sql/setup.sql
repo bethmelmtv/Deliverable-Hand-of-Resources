@@ -23,7 +23,7 @@ CREATE table cats (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name VARCHAR NOT NULL,
   breed VARCHAR NOT NULL,
-  family VARCHAR NOT NULL
+  owner VARCHAR NOT NULL
 );
 
 INSERT INTO cats (name, breed, owner) VALUES

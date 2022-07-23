@@ -18,19 +18,6 @@ INSERT INTO dogs (name, breed, family) VALUES
 ('Jeep','Labrador','Danis'),
 ('Oscar','Poodle','Rebekahs');
 
-
-CREATE table cats (
-  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name VARCHAR NOT NULL,
-  breed VARCHAR NOT NULL,
-  owner VARCHAR NOT NULL
-);
-
-INSERT INTO cats (name, breed, owner) VALUES
-('Tiger', 'Tabby','Carol'),
-('Aniah','Persian','Jared'),
-('Anelise','Munchkin cat','Shreya');
-
 CREATE table grocery(
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   store VARCHAR NOT NULL,
@@ -55,3 +42,15 @@ CREATE table cities(
   ('Chicago', 'Illinois', 'cold'),
   ('San Francisco', 'California', 'foggy'),
   ('Mountain View', 'California', 'dosent know what it wants');
+
+CREATE table cats (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  breed VARCHAR NOT NULL,
+  owner VARCHAR NOT NULL
+);
+
+INSERT INTO cats (name, breed, owner) VALUES
+('Tiger', 'Tabby','Carol'),
+('Aniah','Persian','Jared'),
+('Anelise','Munchkin cat','Shreya');

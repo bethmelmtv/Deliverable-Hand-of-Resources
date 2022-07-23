@@ -19,7 +19,7 @@ describe('testing the CRUD routes for cats', () => {
     expect(resp.body.owner).toEqual('Beth');
   });
 
-  it.only('GET /cats should return a list of cats', async () => {
+  it('GET /cats should return a list of cats', async () => {
     const resp = await request(app).get('/cats');
     expect(resp.status).toEqual(200);
     expect(resp.body).toEqual([
@@ -45,18 +45,18 @@ describe('testing the CRUD routes for cats', () => {
   });
 
   it('PUT/cats/:id cat should update a cat', async () => {
-    const resp = await request(app).put('/cats/2').send({ name: 'Almond' });
-    expect(resp.body.name).toEqual('Almond');
+    const resp = await request(app).put('/cats/3').send({ name: 'Carlton' });
+    expect(resp.body.name).toEqual('Carlton');
   });
 
   it('DELETE/cats/:id should delete a cat', async () => {
     const resp = await request(app).delete('/cats/2');
+    console.log(resp, 'RESP');
     expect(resp.status).toEqual(200);
     expect(resp.body.id).toEqual('2');
     const { status } = await request(app).get('/cats/2');
     expect(status).toEqual(404);
   });
-
   afterAll(() => {
     pool.end();
   });
